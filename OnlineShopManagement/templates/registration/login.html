@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    </head>
+
+    {% if errors %}
+        <p class="error-popup"><b>Your username and password didn't match. Please try again!</b></p>
+    {% endif %}
+    <div class="box">
+        <form class="login" method="post" action="{% url 'login_shop' %}">
+            {% csrf_token %}
+            <br>
+            <br>
+            <br>
+            <label for="username"></label>
+            <input type="text" name="username" placeholder="username" required>
+            <br>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="password" required>
+            <br>
+            <br>
+            <input type="submit" value="Log in">
+        </form>
+        <br>
+        <br>
+        <br>
+        <form action="/register">
+            <input type="submit" id="create" value="Create new account">
+        </form>
+    </div>
+
+{% endblock %}

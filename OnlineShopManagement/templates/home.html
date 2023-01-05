@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+    </head>
+
+    <form method="get">
+        <select name="category">
+            <option value="">All Categories</option>
+            {% for c in categories %}
+                <option value="{{ c.0 }}">{{ c.0 }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <div class="row">
+        {% for product in products %}
+            {% if product.4 == category or category is None %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product ID: {{ product.0 }}</h5>
+                        <p class="card-text">Stock Quantity: {{ product.1 }}</p>
+                        <p class="card-text">Price: {{ product.2 }}</p>
+                        <p class="card-text">Type: {{ product.3 }}</p>
+                        <p class="card-text">Category: {{ product.4 }}</p>
+                        <p class="card-text">Size: {{ product.5 }}</p>
+                        <a href="{% url 'edit_product' product.0 %}" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    </head>
+    <form method="post" action="{% url 'register_shop' %}">
+        <h1>Sign up</h1>
+        {% csrf_token %}
+        <div class="row-align">
+            <div style="width: 50%;">
+                <label for="firstname"></label>
+                <input type="text" name="firstname" placeholder="first name" pattern="[A-Za-z ]{2,}" required
+                       oninvalid="showErrorPopup('Enter a valid first name.');">
+            </div>
+            <div style="width: 50%;">
+                <label for="lastname"></label>
+                <input type="text" name="lastname" placeholder="last name" pattern="[A-Za-z ]{2,}" required
+                       oninvalid="showErrorPopup('Enter a valid last name.');">
+            </div>
+        </div>
+        <div class="row-align">
+            <div style="width: 40%;">
+                <label for="street"></label>
+                <input type="text" name="street" placeholder="street" pattern="[A-Za-z ]{2,}" required
+                       oninvalid="showErrorPopup('Enter a valid street.');">
+            </div>
+            <div style="width: 27%;">
+                <label for="number"></label>
+                <input type="text" name="number" placeholder="number" pattern="^[0-9]+$" required
+                       oninvalid="showErrorPopup('Enter a number.');">
+            </div>
+            <div style="width: 33%;">
+                <label for="city"></label>
+                <input type="text" name="city" placeholder="city" pattern="[A-Za-z ]{2,}" required
+                       oninvalid="showErrorPopup('Enter a valid city.');">
+            </div>
+        </div>
+        <div class="row-align">
+            <div style="width: 65%;">
+                <label for="email"></label>
+                <input type="text" name="email" placeholder="email" pattern="[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,4}"
+                       oninvalid="showErrorPopup('Enter a valid email address.');"
+                       required>
+            </div>
+            <div style="width: 35%;">
+                <label for="phone"></label>
+                <input type="text" name="phone" placeholder="phone" pattern="^[0-9]{10}$" required
+                       oninvalid="showErrorPopup('Enter a valid phone number.');">
+            </div>
+        </div>
+        <div class="row-align">
+            <div style="width: 50%;">
+                <label for="username"></label>
+                <input type="text" name="username" placeholder="username" pattern="^[a-zA-Z_0-9]*$" required
+                       oninvalid="showErrorPopup('The username must contain only letters and numbers. Spaces are not allowed.');">
+            </div>
+            <div style="width: 48%;">
+                <label for="password"></label>
+                <input type="password" name="password" id="password" placeholder="password"
+                       pattern="^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%*_])[a-zA-Z0-9!@#$%*_]{8,}$" required
+                       oninvalid="showErrorPopup('The password must contain at least 8 characters, one letter, one digit, and one special character (!, @, #, $, %, *, _).');">
+            </div>
+
+        </div>
+        <br>
+        <hr>
+        <input type="submit" value="Sign up">
+    </form>
+    <script>
+        function showErrorPopup(message) {
+            // Create the pop-up element
+            let popup = document.createElement("div");
+            popup.classList.add("error-popup");
+            popup.innerHTML = message;
+
+            // Add the pop-up to the page
+            document.body.appendChild(popup);
+
+            // Remove the pop-up after 3 seconds
+            setTimeout(function () {
+                document.body.removeChild(popup);
+            }, 3000);
+        }
+    </script>
+{% endblock %}
