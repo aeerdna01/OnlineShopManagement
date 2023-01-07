@@ -1,0 +1,25 @@
+# Ignore PyCharm files
+.idea/
+
+# Ignore virtual environment directories
+venv/
+.venv/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore Python bytecode files
+*.pyc
+__pycache__/
+
+# Ignore Django secret key
+*.env

@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Online Shop{% endblock %}</title>
+    <title>
+        {% block title %}Online Shop{% endblock %}
+    </title>
 </head>
 <body>
-    <main>
-        {% block content %}
-                    {% csrf_token %}
-        {% endblock %}
-    </main>
+<main>
+    {% block content %}
+        {% csrf_token %}
+    {% endblock %}
+</main>
 </body>
 </html>
