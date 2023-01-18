@@ -130,6 +130,53 @@ def edit_product(request, product_id):
     return render(request, 'edit_product.html', {'form': form, 'product_name': product_name})
 
 
+def edit_supply(request, supply_id):
+    # Retrieve the product from the database
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM supplies WHERE id_product = :id", {'id': supply_id})
+    supply = cursor.fetchone()
+    print("supply")
+
+    #
+    # if request.method == 'POST':
+    #     form = EditProductForm(request.POST)
+    #     if form.is_valid():
+    #         # Requested choice for price, type
+    #         price = form.cleaned_data['price']
+    #         product_type = form.cleaned_data['product_type']
+    #         product_type_label = "'" + dict(form.fields['product_type'].choices)[product_type] + "'"
+    #
+    #         # Requested choice for category
+    #         category = form.cleaned_data['category']
+    #         category_type_label = "'" + dict(form.fields['category'].choices)[category] + "'"
+    #
+    #         # Find the foreign key id_category for products table based on user choice
+    #         cursor.execute("SELECT id_category from categories WHERE name = %s" % (category_type_label))
+    #         category_fk = cursor.fetchone()[0]
+    #
+    #         # Requested choice for size
+    #         size = form.cleaned_data['size']
+    #         size_type_label = "'" + dict(form.fields['size'].choices)[size] + "'"
+    #
+    #         # Find the foreign key id_size for products table based on user choice
+    #         cursor.execute("SELECT id_size from sizes WHERE name = %s" % (size_type_label))
+    #         size_fk = cursor.fetchone()[0]
+    #
+    #         cursor.execute("UPDATE products\
+    #                         SET price = %s, id_category = %s, id_size = %s, type = %s WHERE id_product = %s" \
+    #                        % (price, category_fk, size_fk, product_type_label, product_id))
+    #         cursor.execute("commit")
+    #
+    #         return redirect('home')
+    # else:
+    #     # Render the edit form
+    #     form = EditProductForm(initial={'stock_quantity': product[1], 'price': product[2], 'product_type': product[5],
+    #                                     'category': 1, 'size': 1}, )
+
+    return render(request, 'edit_supply.html', {'form': form)
+
+
 # Manage the home page
 def home(request):
     global id_client
@@ -152,7 +199,6 @@ def home(request):
             "SELECT p.id_product, p.stock_quantity, p.price, p.type, c.name, s.name FROM products p, categories c, sizes s WHERE p.id_category = c.id_category AND p.id_size = s.id_size")
 
     products = cursor.fetchall()
-    print(products)
 
     template = loader.get_template('home.html')
     return HttpResponse(template.render({'products': sorted(products), 'categories': categories}))
@@ -193,17 +239,19 @@ def view_cart(request):
 
 def place_order(request):
     if request.method == 'POST':
-        print(order)
-        print('id client', id_client)
+        order_date = request.POST['order_date']
+        order_date_obj = datetime.strptime(order_date, '%m/%d/%Y')
+        order_date = order_date_obj.strftime('%Y-%m-%d')
+
         # Connect to the database
         cursor = connection.cursor()
         cursor.execute("SELECT username from accounts WHERE id_user = :id_client", id_client=id_client)
         username = cursor.fetchone()[0]
-        print(username)
 
         # Insert the order into the "orders" table
-        cursor.execute("INSERT INTO orders(id_user, order_date) values (get_id_username(:username), sysdate)",
-                       {'username': username})
+        cursor.execute(
+            "INSERT INTO orders(id_user, order_date) values (get_id_username(:username), to_date(:order_date, 'YYYY-MM-DD'))",
+            {'username': username, 'order_date': order_date})
 
         # Insert the order details into the "orders_details" table
         for id_product, quantity in order.items():
@@ -307,7 +355,7 @@ def show_orders(request):
     # Query the database to find all the clients
     cursor.execute(
         "SELECT o.id_order, o.order_date, a.username, o.payment, od.products_id_product, od.order_quantity FROM accounts a, orders o, orders_details od, products p WHERE a.id_user = o.id_user AND od.orders_id_order = o.id_order AND od.products_id_product = p.id_product")
-    orders = cursor.fetchall()
+    orders = sorted(cursor.fetchall())
     # Create a dictionary that groups the order details, products, and quantities by order ID
     orders_dict = {}
     for order in orders:

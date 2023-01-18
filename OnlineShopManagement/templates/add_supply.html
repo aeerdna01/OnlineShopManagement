@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %} Add supply {% endblock %}
+{% block content %}
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/add_supply.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Back to home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login_shop' %}">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form method="post">
+            <h1>Add supply to product ID: {{ product_name }}</h1>
+            {% csrf_token %}
+            <br><br>
+            <p>{{ form.supply_date.label_tag }} {{ form.supply_date }}
+            </p>
+            <p>{{ form.supply_quantity.label_tag }} {{ form.supply_quantity }}</p>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+
+    {% for error in form.supply_date.errors %}
+        {% if error != "This field is required." %}
+            <p id="error-message" class="error-popup">{{ error }}</p>
+        {% endif %}
+    {% endfor %}
+
+
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+        setTimeout(function () {
+            document.getElementById("error-message").remove();
+        }, 3000);
+    </script>
+
+{% endblock %}

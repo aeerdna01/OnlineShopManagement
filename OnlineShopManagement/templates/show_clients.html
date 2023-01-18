@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %} Show Supplies {% endblock %}
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/show_clients.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Back to home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login_shop' %}">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% for client in clients %}
+            <div class="d-flex justify-content-center">
+                <div class="card" style="width: 50%;">
+                    <div class="card-body">
+                        <h5 class="card-title">Username: {{ client.0 }}</h5>
+                        <p class="card-text">Role: {{ client.1 }}</p>
+                        <p class="card-text">Total orders: {{ client.2 }}</p>
+                        <p class="card-text">First name: {{ client.3 }}</p>
+                        <p class="card-text">Last name: {{ client.4 }}</p>
+                        <p class="card-text">Address: {{ client.5 }}</p>
+                        <p class="card-text">Email: {{ client.6 }}</p>
+                        <p class="card-text">Phone: {{ client.7 }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

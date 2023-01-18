@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block title %} Show Orders History {% endblock %}
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/show_orders.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+    </head>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Back to home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login_shop' %}">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Orders</h1>
+        <div class="card">
+            {% for order_id, order_details in orders.items %}
+                <div class="card">
+                    <div class="card-header">
+                        Order ID: {{ order_id }}
+                    </div>
+                    <div class="card-body">
+                        <p>Order date: {{ order_details.order_date }}</p>
+                        <p>Username: {{ order_details.username }}</p>
+                        <p>Payment: {{ order_details.payment }}</p>
+                        <p>Products:</p>
+                        <ul>
+                            {% for product_id, quantity in order_details.products.items %}
+                                <li>Product ID: {{ product_id }}, Quantity: {{ quantity }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

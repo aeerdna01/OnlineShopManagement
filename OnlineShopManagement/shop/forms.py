@@ -38,3 +38,19 @@ class EditProductForm(forms.Form):
         self.fields['category'].choices = get_categories()
         self.fields['size'].choices = get_sizes()
         self.fields['product_type'].choices = get_types()
+
+
+class EditSupplyForm(forms.Form):
+    supply_quantity = forms.IntegerField(required=True, min_value=1, max_value=999)
+    supply_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'}))
+
+    price = forms.DecimalField()
+    product_type = forms.ChoiceField(widget=forms.Select)
+    category = forms.ChoiceField(widget=forms.Select)
+    size = forms.ChoiceField(widget=forms.Select)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['category'].choices = get_categories()
+        self.fields['size'].choices = get_sizes()
+        self.fields['product_type'].choices = get_types()
