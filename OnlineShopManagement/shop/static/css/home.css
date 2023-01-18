@@ -1,4 +1,8 @@
-.card{
+body {
+    background-color: #f0f2f5;
+}
+
+.card {
     background-color: lightgray;
     border: 1px solid #cccccc;
     box-shadow: 2px 2px 2px #cccccc;
@@ -6,6 +10,25 @@
 }
 
 .card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transform: translateY(-3px);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
 }

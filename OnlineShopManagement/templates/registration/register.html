@@ -71,9 +71,15 @@
 
         </div>
         <br>
-        <hr>
         <input type="submit" value="Sign up">
     </form>
+
+    <div class="messages">
+        {% for message in messages %}
+            <div class="error-popup">{{ message }}</div>
+        {% endfor %}
+    </div>
+
     <script>
         function showErrorPopup(message) {
             // Create the pop-up element

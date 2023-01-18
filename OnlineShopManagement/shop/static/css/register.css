@@ -41,7 +41,7 @@ input[type="password"] {
 
 input[type="submit"] {
     width: 20%;
-    background-color: #008000; /* change the color to green */
+    background-color: #2d69d6; /* change the color to green */
     color: #ffffff;
     font-size: 14px;
     padding: 8px 10px;
@@ -52,12 +52,12 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #004d00;
+    background-color: #2554b0;
 }
 
 .error-popup {
     position: fixed;
-    top: 50%;
+    margin-top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #FF0000;
@@ -66,4 +66,9 @@ input[type="submit"]:hover {
     border-radius: 5px;
     font-size: 14px;
     z-index: 1;
+}
+
+form:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
 }
