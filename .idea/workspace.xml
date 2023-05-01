@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68426e82-9264-4d01-b1a5-582d99bf8a9a" name="Changes" comment="" />
+    <list default="true" id="5668d5aa-ee96-455d-b170-296bc7756445" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectId" id="2PC9VrDhbvmZhYtek42LkxmmcoZ" />
+  <component name="ProjectId" id="2PCJ8akLsG41XzfymDkqJDh6As9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,19 +20,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/OnlineShopManagement/OnlineShopManagement",
+    "last_opened_file_path": "E:/BD/OnlineShopManagement/OnlineShopManagement",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="68426e82-9264-4d01-b1a5-582d99bf8a9a" name="Changes" comment="" />
-      <created>1682950223423</created>
+      <changelist id="5668d5aa-ee96-455d-b170-296bc7756445" name="Changes" comment="" />
+      <created>1682954971527</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1682950223423</updated>
-      <workItem from="1682950225852" duration="84000" />
+      <updated>1682954971527</updated>
+      <workItem from="1682954972667" duration="6000" />
     </task>
     <servers />
   </component>
