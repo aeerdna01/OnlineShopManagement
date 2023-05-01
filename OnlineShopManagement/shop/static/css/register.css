@@ -58,7 +58,7 @@ input[type="submit"]:hover {
 .error-popup {
     position: fixed;
     margin-top: 5%;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%, -50%);
     background-color: #FF0000;
     color: #FFFFFF;

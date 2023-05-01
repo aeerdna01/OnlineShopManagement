@@ -56,3 +56,13 @@ h1 {
     color: #7f8081;
     margin-top: 50px;
 }
+.error-popup {
+    font-size: 23px;
+    text-align: center;
+    margin-left: 2%;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1;
+}

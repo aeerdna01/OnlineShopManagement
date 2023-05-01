@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 
 import cx_Oracle
 from django.contrib import messages
@@ -7,7 +7,7 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 
 from shop.connect import connection
-from shop.forms import EditProductForm, ProductForm, SuppliesForm
+from shop.forms import EditProductForm, ProductForm, SuppliesForm, EditSupplyForm
 from django.shortcuts import render, redirect
 
 # Global variable to determine which user is authenticated
@@ -131,50 +131,49 @@ def edit_product(request, product_id):
 
 
 def edit_supply(request, supply_id):
-    # Retrieve the product from the database
     cursor = connection.cursor()
 
-    cursor.execute("SELECT * FROM supplies WHERE id_product = :id", {'id': supply_id})
+    cursor.execute("SELECT * FROM supplies WHERE id_supply = :id", {'id': supply_id})
     supply = cursor.fetchone()
-    print("supply")
 
-    #
-    # if request.method == 'POST':
-    #     form = EditProductForm(request.POST)
-    #     if form.is_valid():
-    #         # Requested choice for price, type
-    #         price = form.cleaned_data['price']
-    #         product_type = form.cleaned_data['product_type']
-    #         product_type_label = "'" + dict(form.fields['product_type'].choices)[product_type] + "'"
-    #
-    #         # Requested choice for category
-    #         category = form.cleaned_data['category']
-    #         category_type_label = "'" + dict(form.fields['category'].choices)[category] + "'"
-    #
-    #         # Find the foreign key id_category for products table based on user choice
-    #         cursor.execute("SELECT id_category from categories WHERE name = %s" % (category_type_label))
-    #         category_fk = cursor.fetchone()[0]
-    #
-    #         # Requested choice for size
-    #         size = form.cleaned_data['size']
-    #         size_type_label = "'" + dict(form.fields['size'].choices)[size] + "'"
-    #
-    #         # Find the foreign key id_size for products table based on user choice
-    #         cursor.execute("SELECT id_size from sizes WHERE name = %s" % (size_type_label))
-    #         size_fk = cursor.fetchone()[0]
-    #
-    #         cursor.execute("UPDATE products\
-    #                         SET price = %s, id_category = %s, id_size = %s, type = %s WHERE id_product = %s" \
-    #                        % (price, category_fk, size_fk, product_type_label, product_id))
-    #         cursor.execute("commit")
-    #
-    #         return redirect('home')
-    # else:
-    #     # Render the edit form
-    #     form = EditProductForm(initial={'stock_quantity': product[1], 'price': product[2], 'product_type': product[5],
-    #                                     'category': 1, 'size': 1}, )
+    if supply:  # check if the supply_id exists in the table
+        if request.method == 'POST':
+            form = EditSupplyForm(request.POST)
+            if form.is_valid():
 
-    return render(request, 'edit_supply.html', {'form': form)
+                supply_date = form.cleaned_data['supply_date']
+                supply_date_obj = datetime.combine(supply_date, time.min)
+
+                supply_quantity = form.cleaned_data['supply_quantity']
+
+                cursor.execute("SELECT supply_quantity FROM supplies WHERE id_supply = :id", {'id': supply_id})
+                old_supply = cursor.fetchone()[0]
+
+                cursor.execute("SELECT id_product FROM supplies WHERE id_supply = :id", {'id': supply_id})
+                ID_product = cursor.fetchone()[0]
+
+                invalid_update = 0
+                if supply_quantity < old_supply:
+                    invalid_update = 1
+
+                if invalid_update == 0:
+                    to_update_product = supply_quantity - old_supply
+                    cursor.execute(
+                        "UPDATE supplies SET supply_date = :supply_date, supply_quantity = :supply_quantity WHERE id_supply = :id",
+                        {'supply_date': supply_date_obj, 'supply_quantity': supply_quantity, 'id': supply_id})
+                    cursor.execute(
+                        "UPDATE products SET stock_quantity = :supply_quantity WHERE id_product = :id_product",
+                        {'supply_quantity': to_update_product, 'id_product': ID_product})
+                    cursor.execute("COMMIT")
+
+                    return redirect('show_supplies')
+                else:
+                    return render(request, 'edit_supply.html', {'errors': 'Invalid supply quantity!'})
+        else:
+            form = EditSupplyForm()
+    else:
+        return redirect('show_supplies')  # if the supply_id is not exists in the table, redirect to show_supplies
+    return render(request, 'edit_supply.html', {'form': form, 'supply': supply})
 
 
 # Manage the home page
@@ -217,7 +216,6 @@ def add_to_cart(request, product_id):
         else:
             # If not, add the product to the order dictionary
             order[product_id] = quantity
-    print(order)
     return redirect('home')
 
 
@@ -230,10 +228,6 @@ def remove_from_cart(request, product_id):
 
 
 def view_cart(request):
-    # Get the cart data from the session
-    # cursor = connection.cursor()
-    # cursor.execute("SELECT role FROM accounts WHERE id_user = :id_client ", id_client=id_client)
-
     return render(request, 'cart.html', {'order': order, 'cart_length': len(order)})
 
 
@@ -248,20 +242,33 @@ def place_order(request):
         cursor.execute("SELECT username from accounts WHERE id_user = :id_client", id_client=id_client)
         username = cursor.fetchone()[0]
 
-        # Insert the order into the "orders" table
-        cursor.execute(
-            "INSERT INTO orders(id_user, order_date) values (get_id_username(:username), to_date(:order_date, 'YYYY-MM-DD'))",
-            {'username': username, 'order_date': order_date})
-
-        # Insert the order details into the "orders_details" table
+        invalid_order = 0
+        ID = 0
         for id_product, quantity in order.items():
+            cursor.execute("SELECT stock_quantity from products WHERE id_product = :id_product", id_product=id_product)
+            stock_q = cursor.fetchone()[0]
+            if quantity > stock_q:
+                invalid_order = 1
+                ID = id_product
+                break
+
+        if invalid_order == 0:
+            # Insert the order into the "orders" table
             cursor.execute(
-                "INSERT INTO orders_details(orders_id_order, products_id_product, order_quantity) values (orders_id_order_seq.currval, :id_product, :quantity)",
-                {'id_product': id_product, 'quantity': quantity})
+                "INSERT INTO orders(id_user, order_date) values (get_id_username(:username), to_date(:order_date, 'YYYY-MM-DD'))",
+                {'username': username, 'order_date': order_date})
 
-        # Commit the transaction
-        cursor.execute("COMMIT")
+            # Insert the order details into the "orders_details" table
+            for id_product, quantity in order.items():
+                cursor.execute(
+                    "INSERT INTO orders_details(orders_id_order, products_id_product, order_quantity) values (orders_id_order_seq.currval, :id_product, :quantity)",
+                    {'id_product': id_product, 'quantity': quantity})
 
+            # Commit the transaction
+            cursor.execute("COMMIT")
+        else:
+            return render(request, 'cart.html',
+                          {'errors': 'Insufficient stock! You can not place the order!', 'ID': ID})
         # Close the cursor
         cursor.close()
         order.clear()
@@ -272,17 +279,11 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
-            print(form.errors)
             # Save the product to the database
             price = form.cleaned_data['price']
             type = form.cleaned_data['type']
             category = "'" + form.cleaned_data['category'] + "'"
             size = "'" + form.cleaned_data['size'] + "'"
-
-            print(price)
-            print(type)
-            print(category)
-            print(size)
 
             # Connect to the database
             cursor = connection.cursor()
@@ -290,12 +291,10 @@ def add_product(request):
             # Find the foreign key id_category for products table based on user input
             cursor.execute("SELECT id_category from categories WHERE name = %s" % category)
             id_category = cursor.fetchone()[0]
-            print(id_category)
 
             # Find the foreign key id_category for products table based on user input
             cursor.execute("SELECT id_size from sizes WHERE name = %s" % size)
             id_size = cursor.fetchone()[0]
-            print(id_size)
 
             # Insert the product into the "products" table
             cursor.execute(

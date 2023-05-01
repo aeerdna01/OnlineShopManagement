@@ -9,6 +9,9 @@
     <head>
         <link rel="stylesheet" type="text/css" href="{% static 'css/edit_supply.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Shop</a>
@@ -28,16 +31,34 @@
             </ul>
         </div>
     </nav>
+    {% if errors %}
+        <p class="error-popup">{{ errors }} Check the new supply quantity to be grater than the last supply!</p>
+    {% endif %}
 
-    <div class="container">
+    {% if errors is None %}
+        <div class="container">
+            <form method="post">
+                <h1>Edit supply ID: {{ supply.3 }}</h1>
+                <br>
+                {% csrf_token %}
+                <p><b>Old supply date: {{ supply.1 }}</b></p>
+                <p><b>Old supply quantity: {{ supply.0 }}</b></p>
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    {% endif %}
 
-        <form method="post">
-            <h1>Edit supply ID:</h1>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-    </div>
 
+    <script>
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+        });
+        setTimeout(function () {
+            document.getElementById("error-message").remove();
+        }, 3000);
+    </script>
 
 {% endblock %}

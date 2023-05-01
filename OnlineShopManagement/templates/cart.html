@@ -47,17 +47,26 @@
                 </form>
             </div>
         {% endfor %}
+
+        {% if errors %}
+            <p class="error-popup">{{ errors }} Check the quantity ordered for product ID {{ ID }}</p>
+        {% endif %}
     </div>
 
-    {% if cart_length != 0 %}
-        <form method="post" action="{% url 'place_order' %}">
-            {% csrf_token %}
-            <label style="margin-left: 35%; margin-top: 7%;">Select order date: <input name="order_date" type="text" id="datepicker"></label>
-            <button type="submit" class="btn btn-primary" style="">Place order</button>
-        </form>
-    {% else %}
-        <h1><i>Your cart is empty</i></h1>
+    {% if errors is None %}
+        {% if cart_length != 0 %}
+            <form method="post" action="{% url 'place_order' %}">
+                {% csrf_token %}
+                <label style="margin-left: 35%; margin-top: 7%;">Select order date: <input name="order_date" type="text"
+                                                                                           id="datepicker" required></label>
+                <button type="submit" class="btn btn-primary" style="">Place order</button>
+            </form>
+        {% else %}
+            <h1><i>Your cart is empty</i></h1>
+        {% endif %}
     {% endif %}
+
+
     <script>
         $(function () {
             $("#datepicker").datepicker();

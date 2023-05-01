@@ -23,3 +23,13 @@ form:hover {
 .container{
     padding: 50px;
 }
+
+.error-popup {
+    font-size: 23px;
+    text-align: center;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1;
+}
