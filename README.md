@@ -15,7 +15,8 @@ Sales tracking and reporting
 ![logical_schema](https://user-images.githubusercontent.com/101983479/236171595-fcd47fac-d08d-420c-ab21-ec5c7613d44b.png)
 ![relational_schema](https://user-images.githubusercontent.com/101983479/236171638-623f9a88-d715-4940-882a-20cf01593f72.png)
 
-## Project documentation [Documentație.pdf (https://github.com/aeerdna01/OnlineShopManagement/files/11396267/Documenta.ie.pdf)
+## Project documentation [Documentație.pdf](https://github.com/aeerdna01/OnlineShopManagement/files/11396335/Documenta.ie.pdf)
+
 - organization
 - data of interest
 - logical model description
