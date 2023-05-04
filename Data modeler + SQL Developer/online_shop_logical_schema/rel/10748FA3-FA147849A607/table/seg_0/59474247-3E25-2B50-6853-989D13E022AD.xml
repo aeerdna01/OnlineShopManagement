@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="59474247-3E25-2B50-6853-989D13E022AD" name="ORDERS_DETAILS">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORDERS_ID_ORDER" id="1ECD7779-F0A6-C95C-97D0-0515F5143DFD">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5760278-D682-E508-5882-915BEA7F4B50" referredColumn="A2ED749C-2910-C23B-E812-909BF6536CFF"/>
+</associations>
+</Column>
+<Column name="PRODUCTS_ID_PRODUCT" id="FB43BDB0-DEFC-AE87-68B8-DADEFFA4682E">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54868C0B-9B45-BC32-9577-27D8DFEC1BDB" referredColumn="C75B02C3-1CD9-568B-B8D4-9DAF69FB875B"/>
+</associations>
+</Column>
+<Column name="ORDER_QUANTITY" id="90D98071-7760-10E7-F679-8A9D35A59E2B">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>9592E646-0CA2-2F33-E8EB-2287554871AF</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>ord_details_quantity_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isRelationshipColumn>true</isRelationshipColumn>
+<isDependOnFK_AsMandatory>true</isDependOnFK_AsMandatory>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C49517E7-1405-85A6-6B79-D43C7E112E5B" name="ORDERS_DETAILS_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ECD7779-F0A6-C95C-97D0-0515F5143DFD"/>
+<colUsage columnID="FB43BDB0-DEFC-AE87-68B8-DADEFFA4682E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F6E4F92-2CEB-0D0F-1459-EF30DC5A3F87" name="ORDERS_DETAILS_ORDERS_FK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>6CFA4B69-6A04-CE3A-E98B-D843AB240ECC</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1ECD7779-F0A6-C95C-97D0-0515F5143DFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E2B1DC80-88CE-5143-E8F8-AC368E6F000C" name="ORDERS_DETAILS_PRODUCTS_FK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>6CFA4B69-6A04-CE3A-E98B-D843AB240ECC</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB43BDB0-DEFC-AE87-68B8-DADEFFA4682E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

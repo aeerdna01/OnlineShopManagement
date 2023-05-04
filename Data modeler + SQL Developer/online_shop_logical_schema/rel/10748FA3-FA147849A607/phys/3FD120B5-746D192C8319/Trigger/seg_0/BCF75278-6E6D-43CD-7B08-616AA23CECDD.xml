@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="supplies_date_trg" directorySegmentName="seg_0" id="BCF75278-6E6D-43CD-7B08-616AA23CECDD">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:43:58 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[BEGIN
+	IF( :new.supply_date < SYSDATE )
+	THEN
+	RAISE_APPLICATION_ERROR( -20001,
+	'Invalid date: ' || TO_CHAR( :new.supply_date, 'DD.MM.YYYY' ) || ' it should be grater than the current date!' );
+	END IF;
+END]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>EEC8A54C-A9C3-BB1F-A9E4-18BCD87EFEFA</table>
+</TriggerOraclev10g>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="online_shop_logical_schema" id="740817F8-8DCA-B6A1-9DC1-BA059565C3BB" version="3.5">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:44:48 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>740817F8-8DCA-B6A1-9DC1-BA059565C3BB</designId>
+</OSDM_Design>

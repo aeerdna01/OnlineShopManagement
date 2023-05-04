@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BA266818-2BCD-6EC6-18D3-A7C66C2C3C90" name="PRODUCTS">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:46:46 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_PRODUCT" id="485A66F5-7889-8434-1887-855A148D99A7">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:57:21 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STOCK_QUANTITY" id="46B4624F-5A19-4D66-31EC-BB1B16B49FDB">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 10:31:29 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<constraintName>products_stock_quantity</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>999</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="PRICE" id="2DB07BC1-642B-8163-936B-3CFDF6891664">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:57:27 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<constraintName>products_price_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>10</beginValue>
+<endValue>999</endValue>
+</rangeDef>
+</listOfRanges>
+</Attribute>
+<Attribute name="ID_CATEGORY" id="3C56D68D-5AA0-9DF3-CCF8-8BB1C1400856">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 12:09:16 UTC</createdTime>
+<generatorID>3CF81AEB-2018-AF1D-D646-F8123094D020</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<referedAttribute>192A7A8B-148B-BA1B-833A-02A1114F8BA1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_SIZE" id="FE403769-B2AC-7052-ACEB-E3C38F4C3ECF">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:12:49 UTC</createdTime>
+<generatorID>54FF8A61-187D-0A89-10BF-39E16E6EDD29</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<referedAttribute>608C07D7-7D9D-E8A4-999A-2A3B89AA2FF6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TYPE" id="8171EF9A-A712-15D4-0616-AEF648F90C1D">
+<createdBy>andre</createdBy>
+<createdTime>2022-12-28 17:48:41 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="true"/>
+</engineerTo>
+<constraintName>products_type_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<listOfValues>
+<valueDef value="Men" description=""/>
+<valueDef value="Women" description=""/>
+</listOfValues>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BA022025-CE8A-833E-4289-3DBA6ADDCDCA" name="PRODUCT_PK">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:57:43 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="10748FA3-E8B1-F7C5-1F51-FA147849A607" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>485A66F5-7889-8434-1887-855A148D99A7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

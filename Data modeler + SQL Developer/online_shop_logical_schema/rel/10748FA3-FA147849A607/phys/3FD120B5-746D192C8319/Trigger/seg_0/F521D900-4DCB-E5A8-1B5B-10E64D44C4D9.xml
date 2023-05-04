@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name=" supplies_stock_trg" directorySegmentName="seg_0" id="F521D900-4DCB-E5A8-1B5B-10E64D44C4D9">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:44:14 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[BEGIN
+    update products 
+    set products.stock_quantity = products.stock_quantity + :new.supply_quantity
+    where products.id_product = :new.id_product;
+END;
+]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>EEC8A54C-A9C3-BB1F-A9E4-18BCD87EFEFA</table>
+</TriggerOraclev10g>

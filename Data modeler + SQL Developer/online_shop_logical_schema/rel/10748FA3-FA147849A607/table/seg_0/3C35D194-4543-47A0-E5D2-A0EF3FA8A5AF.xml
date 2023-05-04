@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C35D194-4543-47A0-E5D2-A0EF3FA8A5AF" name="SIZES">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>4A9C9A1E-4FFE-3F4A-DA99-E886C0C877B7</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_SIZE" id="B3997092-F88A-2DAE-D7B5-02F5D558006C">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>608C07D7-7D9D-E8A4-999A-2A3B89AA2FF6</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="55B22699-1858-6BBE-717A-4BE07D73CC62">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>59C5D66F-8DAF-7C98-D018-178A5C9E9396</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>sizes_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<listOfValues>
+<valueDef value="L" description=""/>
+<valueDef value="M" description=""/>
+<valueDef value="S" description=""/>
+<valueDef value="XL" description=""/>
+<valueDef value="XS" description=""/>
+<valueDef value="XXL" description=""/>
+<valueDef value="XXS" description=""/>
+</listOfValues>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3D793A5D-376A-9A30-6719-115FC91287B0" name="SIZE_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>73967C21-686D-5FAE-0725-00B905830257</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B3997092-F88A-2DAE-D7B5-02F5D558006C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BFD04FD3-6CA0-C53D-1061-22D1F3690820" name="size_name_uk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>F33D1B16-45C0-F476-FE42-40F168D9DFF1</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="55B22699-1858-6BBE-717A-4BE07D73CC62"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

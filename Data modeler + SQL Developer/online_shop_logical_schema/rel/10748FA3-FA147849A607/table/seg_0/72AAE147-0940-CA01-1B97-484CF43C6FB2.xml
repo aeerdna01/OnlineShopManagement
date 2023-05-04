@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="72AAE147-0940-CA01-1B97-484CF43C6FB2" name="ACCOUNTS">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>8E03559E-29D3-B2D6-7364-F4B9716EACF2</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_USER" id="7BF4EF22-126B-C5D3-026B-95EED923B4A1">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>70645219-01D4-1132-25A6-A53DAA367270</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USERNAME" id="4C4683CE-6D1F-CDF1-5F31-DA9F737BCE30">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>F8D39ECB-D57D-DEEA-1E75-BB72E86C84D2</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>accounts_username_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(USERNAME) &gt;= 3 and regexp_like(USERNAME, &apos;^[a-zA-Z_0-9]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="9C3F5E67-D765-CE93-0407-075D7E2DF43B">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>397E0299-6ED8-415D-4DE9-2DB5C8B0C634</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>accounts_password_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>31</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(PASSWORD,&apos;[A-Za-z0-9][!@#$%*_]&apos;) and length(PASSWORD) &gt;= 8"/>
+</checkConstraint>
+<ownDataTypeParameters>31,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ROLE" id="D1865009-C92C-0AA3-9662-F2D7152E69A0">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>83CAAAB2-F8B6-AC3D-7EF5-339F0BF658C8</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>accounts_role_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<listOfValues>
+<valueDef value="administrator" description=""/>
+<valueDef value="customer" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_ORDERS" id="ACEBA0C6-07B3-E109-9ECB-36D5F2C6ADDD">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>6779875F-C444-4B32-3BDB-C6423F049798</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>accounts_total_orders_ck</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="TOTAL_ORDERS &gt;= 0 "/>
+</checkConstraint>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7917B0AA-1BC2-A1CC-0628-FE763E2BE648" name="ACCOUNT_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>A1A30F04-FDD8-051C-11B8-6EF29BE93922</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BF4EF22-126B-C5D3-026B-95EED923B4A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

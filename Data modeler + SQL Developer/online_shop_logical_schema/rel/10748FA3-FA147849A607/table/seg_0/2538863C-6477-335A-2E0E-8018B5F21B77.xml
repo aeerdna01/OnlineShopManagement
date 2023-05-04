@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2538863C-6477-335A-2E0E-8018B5F21B77" name="CATEGORIES">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>734A5CBD-1C11-E16A-753C-A6D74C3C10A2</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CATEGORY" id="94A1AD5B-A2F7-F5ED-866C-509C6CC1225B">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>192A7A8B-148B-BA1B-833A-02A1114F8BA1</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NAME" id="66412D30-F13D-8A8D-D1D4-55369812A60D">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>73E61517-D557-3167-8F99-D0C6D8AD6920</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>categories_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(NAME) &gt;= 3 and regexp_like(NAME, &apos;^[a-zA-Z_ ]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="21E4BDA5-1977-E1CD-86FE-F345C1D806D4" name="CATEGORIES_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>39AA9CB6-49D3-14AF-A7E7-D0C7DBB64097</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94A1AD5B-A2F7-F5ED-866C-509C6CC1225B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="386FE68B-01CC-CE28-6BCB-3078D99D992E" name="categories_name_uk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>1039B86A-A8FC-57EB-8ED1-46A56663E1B5</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66412D30-F13D-8A8D-D1D4-55369812A60D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

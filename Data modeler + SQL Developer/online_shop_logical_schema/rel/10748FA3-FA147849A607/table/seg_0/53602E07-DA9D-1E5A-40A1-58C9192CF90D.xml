@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="53602E07-DA9D-1E5A-40A1-58C9192CF90D" name="ORDERS">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>9400F991-E1F1-654D-3AFB-3FC8EFDD1395</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_ORDER" id="A2ED749C-2910-C23B-E812-909BF6536CFF">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>3F3CD3AC-86B3-39CE-B68A-818566E1F91B</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDER_DATE" id="CAA12137-BD82-9A3A-FCFE-7477FB851C37">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>D0E56284-25F4-1B53-7FB1-713BF1E2BFB6</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_USER" id="F0DEB24E-4CC8-AB8C-0BEC-0E0DE922EB46">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>026483ED-1CDA-70D8-663B-54A8C0AFDA45</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20B716B7-CA28-8636-FB9C-45A1869D655F" referredColumn="7BF4EF22-126B-C5D3-026B-95EED923B4A1"/>
+</associations>
+</Column>
+<Column name="PAYMENT" id="966A11EC-5BDA-0E63-5F71-949970286273">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>B3D3976B-E31B-F28F-1EED-E44FEC379366</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>order_payment_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="PAYMENT &gt;= 0"/>
+</checkConstraint>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="442587BE-9C5F-C4E8-C0BD-96E55FB4B059" name="ORDER_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>27E76D44-CD07-4D0C-8436-F1E78A4680B3</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2ED749C-2910-C23B-E812-909BF6536CFF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C0A094EC-6764-2D70-DCF0-9135612F06F6" name="accounts_orders_fk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>11C24222-0A0E-D3F6-01DF-B161BEA94EAE</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0DEB24E-4CC8-AB8C-0BEC-0E0DE922EB46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

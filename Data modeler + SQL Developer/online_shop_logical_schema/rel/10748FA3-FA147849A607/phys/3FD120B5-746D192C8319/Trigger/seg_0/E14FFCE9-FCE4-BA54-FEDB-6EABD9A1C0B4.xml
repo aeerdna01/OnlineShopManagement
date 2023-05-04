@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="orders_date_trg" directorySegmentName="seg_0" id="E14FFCE9-FCE4-BA54-FEDB-6EABD9A1C0B4">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:42:28 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[BEGIN
+	 IF( TRUNC( :new.order_date ) < TRUNC( SYSDATE ) )
+	THEN
+	RAISE_APPLICATION_ERROR( -20001,
+	'Invalid date: ' || TO_CHAR( :new.order_date, 'DD.MM.YYYY' ) || ' it should be grater than the current date!' );
+	END IF;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>53602E07-DA9D-1E5A-40A1-58C9192CF90D</table>
+</TriggerOraclev10g>

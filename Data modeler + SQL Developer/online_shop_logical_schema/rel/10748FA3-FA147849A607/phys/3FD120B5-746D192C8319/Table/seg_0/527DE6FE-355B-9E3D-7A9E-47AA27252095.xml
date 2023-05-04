@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="USER_DETAILS" directorySegmentName="seg_0" id="527DE6FE-355B-9E3D-7A9E-47AA27252095">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="FIRST_NAME" id="6371B733-5AB0-DADA-70FB-3F8724B7C0DF">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_NAME" id="7CCC1D1F-560E-CBBB-5356-A2E324610DD8">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADDRESS" id="81701E0B-2714-0AA5-A3B3-4B42B0674BC6">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ID_USER" id="C1C8F650-569C-0F38-D1C9-A2148534CF2A">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="C67EC066-253D-AD2E-80F1-3A4DA2A15B02">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="DDEB20F5-2585-9E9B-8985-D4AE15A5B85B">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="accounts_user_details_fk" id="F612B764-0006-4B59-C454-D0D37A8605E7">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="CUSTOMER_PK" id="1896738D-BBE2-4E02-1E93-9B160C1FA033">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="details_email_uk" id="E2E39CF7-C080-D1B7-5F08-8452FD998686">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:40:38 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev12c>

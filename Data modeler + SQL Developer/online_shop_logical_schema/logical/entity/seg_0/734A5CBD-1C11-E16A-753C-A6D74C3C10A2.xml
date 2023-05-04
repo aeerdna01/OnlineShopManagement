@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="734A5CBD-1C11-E16A-753C-A6D74C3C10A2" name="CATEGORIES">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:46:57 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="9400FA4F-65B5-1543-ECE6-7027E913B23E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_CATEGORY" id="192A7A8B-148B-BA1B-833A-02A1114F8BA1">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:59:23 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="9400FA4F-65B5-1543-ECE6-7027E913B23E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="73E61517-D557-3167-8F99-D0C6D8AD6920">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:59:47 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="9400FA4F-65B5-1543-ECE6-7027E913B23E" value="true"/>
+</engineerTo>
+<constraintName>categories_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(NAME) &gt;= 3 and regexp_like(NAME, &apos;^[a-zA-Z_ ]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="39AA9CB6-49D3-14AF-A7E7-D0C7DBB64097" name="CATEGORIES_PK">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:59:45 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="9400FA4F-65B5-1543-ECE6-7027E913B23E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>192A7A8B-148B-BA1B-833A-02A1114F8BA1</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="1039B86A-A8FC-57EB-8ED1-46A56663E1B5" name="categories_name_uk">
+<createdBy>andre</createdBy>
+<createdTime>2022-12-23 00:12:11 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="9400FA4F-65B5-1543-ECE6-7027E913B23E" value="true"/>
+</engineerTo>
+<newElementsIDs>73E61517-D557-3167-8F99-D0C6D8AD6920</newElementsIDs>
+<usedAttributes>
+<attributeRef>73E61517-D557-3167-8F99-D0C6D8AD6920</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

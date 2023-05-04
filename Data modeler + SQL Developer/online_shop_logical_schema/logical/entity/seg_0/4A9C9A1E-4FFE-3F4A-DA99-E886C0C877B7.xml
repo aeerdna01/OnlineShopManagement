@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4A9C9A1E-4FFE-3F4A-DA99-E886C0C877B7" name="SIZES">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:11:27 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="5F5D4C05-278E-54BB-0540-C6358B79E6BC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_SIZE" id="608C07D7-7D9D-E8A4-999A-2A3B89AA2FF6">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:11:40 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="5F5D4C05-278E-54BB-0540-C6358B79E6BC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="59C5D66F-8DAF-7C98-D018-178A5C9E9396">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:11:48 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="5F5D4C05-278E-54BB-0540-C6358B79E6BC" value="true"/>
+</engineerTo>
+<constraintName>sizes_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<listOfValues>
+<valueDef value="L" description=""/>
+<valueDef value="M" description=""/>
+<valueDef value="S" description=""/>
+<valueDef value="XL" description=""/>
+<valueDef value="XS" description=""/>
+<valueDef value="XXL" description=""/>
+<valueDef value="XXS" description=""/>
+</listOfValues>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="73967C21-686D-5FAE-0725-00B905830257" name="SIZE_PK">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:11:45 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="5F5D4C05-278E-54BB-0540-C6358B79E6BC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>608C07D7-7D9D-E8A4-999A-2A3B89AA2FF6</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="F33D1B16-45C0-F476-FE42-40F168D9DFF1" name="size_name_uk">
+<createdBy>andre</createdBy>
+<createdTime>2022-12-29 14:54:20 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="5F5D4C05-278E-54BB-0540-C6358B79E6BC" value="true"/>
+</engineerTo>
+<newElementsIDs>59C5D66F-8DAF-7C98-D018-178A5C9E9396</newElementsIDs>
+<usedAttributes>
+<attributeRef>59C5D66F-8DAF-7C98-D018-178A5C9E9396</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

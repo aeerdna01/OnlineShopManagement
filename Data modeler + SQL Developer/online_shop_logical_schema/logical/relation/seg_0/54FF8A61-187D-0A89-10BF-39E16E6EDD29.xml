@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="sizes_products_fk" directorySegmentName="seg_0" id="54FF8A61-187D-0A89-10BF-39E16E6EDD29">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 18:12:49 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<sourcePk>73967C21-686D-5FAE-0725-00B905830257</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>belongs to</nameOnSource>
+<nameOnTarget>have the</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4A9C9A1E-4FFE-3F4A-DA99-E886C0C877B7</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BA266818-2BCD-6EC6-18D3-A7C66C2C3C90</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

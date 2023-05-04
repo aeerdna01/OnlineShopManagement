@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ORDERS_DETAILS" directorySegmentName="seg_0" id="6CFA4B69-6A04-CE3A-E98B-D843AB240ECC">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 12:08:14 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="31FF24BB-2326-0BDE-D57E-C2D9574A6287" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnSource>contains</nameOnSource>
+<nameOnTarget>are in</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>9400F991-E1F1-654D-3AFB-3FC8EFDD1395</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>BA266818-2BCD-6EC6-18D3-A7C66C2C3C90</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<attribute name="ORDER_QUANTITY" id="9592E646-0CA2-2F33-E8EB-2287554871AF">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-25 21:37:55 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="31FF24BB-2326-0BDE-D57E-C2D9574A6287" value="true"/>
+</engineerTo>
+<constraintName>ord_details_quantity_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>1</beginValue>
+<endValue>999</endValue>
+</rangeDef>
+</listOfRanges>
+</attribute>
+</attributes>
+</Relation>

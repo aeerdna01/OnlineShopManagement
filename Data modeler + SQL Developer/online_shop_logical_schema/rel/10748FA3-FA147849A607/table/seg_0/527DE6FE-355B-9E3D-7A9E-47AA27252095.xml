@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="527DE6FE-355B-9E3D-7A9E-47AA27252095" name="USER_DETAILS">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>81AC724D-2F1B-46FD-94D4-C658C459FA3B</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_USER" id="C1C8F650-569C-0F38-D1C9-A2148534CF2A">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>4D83AE5B-734F-E79F-0AB2-B57E05D9D589</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EE9834A9-DF3C-B7AC-B90A-0258A6173470" referredColumn="7BF4EF22-126B-C5D3-026B-95EED923B4A1"/>
+</associations>
+</Column>
+<Column name="FIRST_NAME" id="6371B733-5AB0-DADA-70FB-3F8724B7C0DF">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>A9A5957E-5402-652A-1755-E9F1D1CF6940</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>user_details_first_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(FIRST_NAME) &gt;= 3 and regexp_like(FIRST_NAME, &apos;^[a-zA-Z_ ]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_NAME" id="7CCC1D1F-560E-CBBB-5356-A2E324610DD8">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>0EF4141F-FB8A-2E66-EDB6-1B68DF45F874</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>user_details_last_name_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(LAST_NAME) &gt;= 3 and regexp_like(LAST_NAME, &apos;^[a-zA-Z_ ]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADDRESS" id="81701E0B-2714-0AA5-A3B3-4B42B0674BC6">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>EBAEA0ED-6C7B-12E3-C7DC-2C417904247C</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>user_details_address_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(ADDRESS) &gt;= 3 and regexp_like(ADDRESS, &apos;^[a-zA-Z_ 0-9.]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="C67EC066-253D-AD2E-80F1-3A4DA2A15B02">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>98A25F99-8D4C-89AB-266D-405449893B3F</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>user_details_email_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(email, &apos;[a-z0-9._%-]+@[a-z0-9._%-]+\.[a-z]{2,4}&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="DDEB20F5-2585-9E9B-8985-D4AE15A5B85B">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>493D25DC-D2F6-D205-C9EE-783551116888</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>user_details_phone_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(PHONE, &apos;^[0-9]{10}$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1896738D-BBE2-4E02-1E93-9B160C1FA033" name="CUSTOMER_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>152FC0C5-82A3-93D9-FA5E-4466015324E4</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C1C8F650-569C-0F38-D1C9-A2148534CF2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E2E39CF7-C080-D1B7-5F08-8452FD998686" name="details_email_uk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>E9637DF5-B949-C35A-EB29-FC864E44FD02</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C67EC066-253D-AD2E-80F1-3A4DA2A15B02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F612B764-0006-4B59-C454-D0D37A8605E7" name="accounts_user_details_fk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>515D979B-D71B-E9DB-9109-A36228485037</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C1C8F650-569C-0F38-D1C9-A2148534CF2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

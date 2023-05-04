@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8E03559E-29D3-B2D6-7364-F4B9716EACF2" name="ACCOUNTS">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:45:45 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_USER" id="70645219-01D4-1132-25A6-A53DAA367270">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 13:56:31 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="USERNAME" id="F8D39ECB-D57D-DEEA-1E75-BB72E86C84D2">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:48:40 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<constraintName>accounts_username_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="length(USERNAME) &gt;= 3 and regexp_like(USERNAME, &apos;^[a-zA-Z_0-9]*$&apos;)"/>
+</checkConstraint>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PASSWORD" id="397E0299-6ED8-415D-4DE9-2DB5C8B0C634">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:49:01 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<constraintName>accounts_password_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>31</dataTypeSize>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="regexp_like(PASSWORD,&apos;[A-Za-z0-9][!@#$%*_]&apos;) and length(PASSWORD) &gt;= 8"/>
+</checkConstraint>
+<ownDataTypeParameters>31,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ROLE" id="83CAAAB2-F8B6-AC3D-7EF5-339F0BF658C8">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 11:49:25 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<constraintName>accounts_role_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<listOfValues>
+<valueDef value="administrator" description=""/>
+<valueDef value="customer" description=""/>
+</listOfValues>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TOTAL_ORDERS" id="6779875F-C444-4B32-3BDB-C6423F049798">
+<createdBy>andre</createdBy>
+<createdTime>2022-12-22 22:46:59 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<constraintName>accounts_total_orders_ck</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<checkConstraint>
+<implementationDef dbType="Generic Constraint" definition="TOTAL_ORDERS &gt;= 0 "/>
+</checkConstraint>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A1A30F04-FDD8-051C-11B8-6EF29BE93922" name="ACCOUNT_PK">
+<createdBy>andre</createdBy>
+<createdTime>2022-11-24 12:06:30 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<engineerTo>
+<item key="2603D9C8-7892-1E84-54F4-54D75CD067B1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>70645219-01D4-1132-25A6-A53DAA367270</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

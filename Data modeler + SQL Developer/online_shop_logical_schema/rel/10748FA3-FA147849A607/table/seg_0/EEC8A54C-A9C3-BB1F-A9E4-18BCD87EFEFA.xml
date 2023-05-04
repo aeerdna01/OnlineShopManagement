@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EEC8A54C-A9C3-BB1F-A9E4-18BCD87EFEFA" name="SUPPLIES">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>0D7DE2D1-8372-DF4F-A4C5-982259BB605A</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SUPPLY_QUANTITY" id="42036F36-17E5-FA7B-1231-A12446BD6D70">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>F6DB3303-D49E-0786-FEFF-AACE82655BAD</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<constraintName>supplies_quantity_ck</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<listOfRanges>
+<rangeDef class="oracle.dbtools.crest.model.design.constraint.AVT">
+<beginValue>0</beginValue>
+<endValue>999</endValue>
+</rangeDef>
+</listOfRanges>
+</Column>
+<Column name="SUPPLY_DATE" id="C840B5EB-5E5F-5287-C22A-652BA1A939F0">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>5F4C5720-9016-7E4E-5D25-67521F382505</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_PRODUCT" id="3C298BB3-A1FD-D347-1A98-74D507E8B86F">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>99E10644-EF62-5BE2-31F4-8817E12FFBC1</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1F7A7F70-1F52-2D6A-C317-6CBE26D5F7E4" referredColumn="C75B02C3-1CD9-568B-B8D4-9DAF69FB875B"/>
+</associations>
+</Column>
+<Column name="ID_SUPPLY" id="376BBE58-DC84-23B6-79B8-2E76FA034FF9">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:42:05 UTC</createdTime>
+<generatorID>C64383EB-EB8D-77EC-1418-8D9C4DF3A0AE</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A4A083AB-B861-3021-53BB-97FB90F6253C" name="SUPPLIES_PK">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:42:05 UTC</createdTime>
+<generatorID>39A51570-3807-60E4-C89F-C5A12E544948</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="376BBE58-DC84-23B6-79B8-2E76FA034FF9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D5D55D2C-D234-301E-B432-BBD43D4194A0" name="products_supplies_fk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>F31502D0-66D7-3B3E-7429-D68C78F45445</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3C298BB3-A1FD-D347-1A98-74D507E8B86F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

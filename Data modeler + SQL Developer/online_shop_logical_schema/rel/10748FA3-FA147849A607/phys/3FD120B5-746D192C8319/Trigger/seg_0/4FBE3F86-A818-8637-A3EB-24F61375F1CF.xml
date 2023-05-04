@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="orders_payment_stock_trg" directorySegmentName="seg_0" id="4FBE3F86-A818-8637-A3EB-24F61375F1CF">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:43:10 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[DECLARE
+    voucher number;
+BEGIN
+    update products
+    set stock_quantity = stock_quantity - :new.order_quantity
+    where id_product = :new.products_id_product;
+
+    select accounts.total_orders 
+    into voucher 
+    from accounts 
+    where  accounts.id_user = (select id_user from orders where id_order = :new.orders_id_order);
+
+    update orders 
+    set orders.payment = orders.payment + :new.order_quantity * 
+    				(select products.price from products where :new.products_id_product = products.id_product)
+    where orders.id_order = :new.orders_id_order;
+
+    IF voucher = 3 THEN
+    update orders 
+    set orders.payment = orders.payment - 30
+    where orders.id_order = :new.orders_id_order; 
+    END IF;
+END;]]></body>
+<triggerTime>BEFORE</triggerTime>
+<table>59474247-3E25-2B50-6853-989D13E022AD</table>
+</TriggerOraclev10g>

@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="get_id_username" directorySegmentName="seg_0" id="807EF5ED-029F-8463-D702-E709096935DA">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-17 23:45:34 UTC</createdTime>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<source>CREATE OR REPLACE FUNCTION get_id_username (
+    param_username VARCHAR2
+) RETURN NUMBER IS
+    var_result NUMBER;
+BEGIN
+    SELECT
+        id_user
+    INTO var_result
+    FROM
+        accounts
+    WHERE
+        username = param_username;
+
+    IF var_result = NULL THEN
+        raise_application_error(-20001, &apos;The customer is not registered in the database!&apos;);
+    END IF;
+    RETURN var_result;
+END;</source>
+</FunctionOracle>

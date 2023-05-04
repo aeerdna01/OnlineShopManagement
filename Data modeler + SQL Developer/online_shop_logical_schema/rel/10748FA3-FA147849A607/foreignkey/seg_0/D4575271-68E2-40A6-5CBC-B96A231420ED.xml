@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D4575271-68E2-40A6-5CBC-B96A231420ED" containerWithKeyObject="77E9211E-F9F9-7135-F964-A218C8B0B7B3" localFKIndex="3A6918D3-9908-C0A1-7D99-C32729DD5F1A" name="sizes_products_fk">
+<createdBy>andre</createdBy>
+<createdTime>2023-01-02 20:30:22 UTC</createdTime>
+<generatorID>54FF8A61-187D-0A89-10BF-39E16E6EDD29</generatorID>
+<ownerDesignName>online_shop_logical_schema</ownerDesignName>
+<referredTableLongName>SIZES</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3C35D194-4543-47A0-E5D2-A0EF3FA8A5AF</referredTableID>
+<keyObject>3D793A5D-376A-9A30-6719-115FC91287B0</keyObject>
+<referredKeyID>3D793A5D-376A-9A30-6719-115FC91287B0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ID_SIZE</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
