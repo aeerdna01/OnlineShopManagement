@@ -10,7 +10,6 @@ The project includes also the Data Modeler and SQL Developer scripts, which prov
 * Detailed information on products and categories
 * Order tracking and history for customers
 * Inventory management for administrators
-* Sales tracking and reporting
 
 ## [Project documentation.pdf](https://github.com/aeerdna01/OnlineShopManagement/files/11396657/Project.documentation.pdf)
 - organization
